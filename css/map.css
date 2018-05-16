@@ -1,0 +1,212 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    background:#001020;
+}
+.mapContainer{
+    width:1758px;
+    height:1000px;
+    position:relative;
+    margin-top:12px;
+}
+.mapBorder{
+    width:105%;
+    height:90%;
+    position:absolute;
+    z-index:9;
+}
+#myMap{
+    width:105%;
+    height:90%;
+    z-index:8;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.mapLegend{
+     font-size:14px;
+     color:#fff;
+ }
+.mapLegend{
+    width:702px;
+    height:60px;
+    background:rgba(0,16,32,.7);
+    
+}
+.mapLegend_list{
+    font-size:14px;
+    color:#fff;
+    width: 322px;
+    height: 637px;
+    position: absolute;
+    right: 0;
+    top: 153px;
+    z-index: 9;
+    background: url(../img/07-message.png) ;
+}
+.mapLegend_list h2{
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    font-size: 26px;
+    color: #08fcff;
+}
+.mapLegend_list{
+    /* width: 320px;
+    height: 600px; */
+    /* background: rgba(0,16,32,.7); */
+   /*  background: linear-gradient(-45deg, transparent 15px, rgba(0,16,32,.7) 0) right,
+    linear-gradient(45deg, transparent 15px, rgba(0,16,32,.7) 0) left,
+    linear-gradient(-135deg, transparent 15px, rgba(0,16,32,.7) 0) right,
+    linear-gradient(135deg, transparent 15px, rgba(0,16,32,.7) 0) left;
+    background-repeat: repeat, repeat;
+    background-size: auto auto, auto auto;
+    background-size: 50% 100%;
+    background-repeat: no-repeat; */
+   
+    /* z-index: 99;
+    position: absolute;
+    top: 155px;
+    right: -30px; */
+}
+.mapLegend ul{
+    margin-left:140px;
+    margin-top:22px;
+}
+.mapLegend li{
+    float:left;
+    margin-right:20px;
+}
+.mapLegend li span,.mapLegend li i{
+    vertical-align: middle;
+}
+
+i.blue{
+    margin-right:2px;
+    display:inline-block;
+    width:14px;
+    height:15px;
+    border:2px solid #09D4FF;
+    background:rgba(9,212,255,.6);
+}
+i.green{
+    margin-right:2px;
+    display:inline-block;
+    width:14px;
+    height:15px;
+    border:2px solid #7CF102;
+    background:rgba(124,241,2,.6);
+}
+i.purple{
+    margin-right:2px;
+    display:inline-block;
+    width:14px;
+    height:15px;
+    border:2px solid #B442FF;
+    background:rgba(180,66,255,.6);
+}
+i.yellow{
+    margin-right:2px;
+    display:inline-block;
+    width:14px;
+    height:15px;
+    border:2px solid #FFD200;
+    background:rgba(255,210,0,.6);
+}
+i.red{
+    margin-right:2px;
+    display:inline-block;
+    width:14px;
+    height:15px;
+    border:2px solid #FF787A;
+    background:rgba(255,120,122,.6);
+}
+
+
+/******弹出层******/
+.tip{
+    position: absolute;
+    color: #303030;
+    width: 550px;
+    /* height: 190px; */
+    /* line-height: 28px; */
+    /* font-size: 22px; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.tip>h2{
+    /* height:65px;
+    line-height: 65px; */
+    padding: 15px 10px;
+    background:#0c8fd3;
+    text-align:center;
+    font-size:24px;
+    color:#fff;
+    font-weight:normal;
+    border-radius: 5px 5px 0 0;
+}
+.tip .img-text{
+    display: flex;
+    padding: 20px 0;
+    height: 120px;
+    overflow: hidden;
+    max-height: 120px;
+    
+}
+
+.tip .img-text .img-dom{
+    flex: 0.3;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.tip .img-text .img-dom img{
+    /* display: block; */
+    width: 100%;
+    height: 80px;
+    /* margin-top: 20%; */
+}
+
+.tip .img-text .text-dom{
+    box-sizing: border-box;
+    padding: 0 10px;
+    flex: 1;
+}
+.tip .img-text .text-dom p{
+    font-size: 22px;
+    color: #0c8fd3
+}
+.tip .img-text .text-dom p:last-child{
+    /* margin-top: 10px; */
+}
+.water{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    -webkit-user-select: none;
+    border:none;
+}
+
+.transform-rotate{
+    /* transform-origin:18% 55%;
+    transform:rotate(180deg); */
+}
+
+/*** global.css***/
+.clearfix:before,
+.clearfix:after{
+    display: table;
+    content: " ";
+}
+.clearfix:after{
+    clear: both;
+}
+.col-left{
+    float: left;
+}
+.col-right{
+    float: left;
+}

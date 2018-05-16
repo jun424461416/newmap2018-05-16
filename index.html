@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh_CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Carrot for a donkey!</title>
+        <meta name="description" content="">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/map.css">
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=BvwHIcql1lOp5rYE8FbOI9EVQiwNPaDM"></script>
+    	<script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
+		<style>
+			/* ranklist */
+			.ranklist{height:550px;overflow:hidden;padding: 0 10px;}
+			.ranklist li{position:relative;padding:10px 20px;;font-size: 14px;border-bottom: 1px solid #115578;color: #dbeeff}
+			.ranklist li .num{position:absolute;right:0;top:0;color:#999;}
+		</style>
+    </head>
+    <body>
+
+	<div class="root">
+        	<div class="part-center">
+				<img src="img/02-decorate-middle.png" alt="" style="position: absolute;z-index: 10; top: -54px;left: 33%;">
+				 <img src="img/03-decorate.png" alt="" style="position: absolute;z-index: 10; top: -54px;right: -113px;">
+				<img src="img/01-decorate-top.png" alt="" style="position: absolute;z-index: 10; top: -56px;left: 0;">
+				<!-- 05-left-bottom -->
+				
+        		<div class="mapContainer">
+					<img class="mapBorder" src="images/mapBg.png" />
+					<img src="img/05-left-bottom.png" alt="" style="position: absolute;z-index: 10; left:-33px;bottom: 0;">
+					<!-- 06-lower-right -->
+					<img src="img/06-lower-right.png" alt="" style="position: absolute;z-index: 10; right:-122px;bottom: 0;">
+				    <!--<div class="mapLegend">-->
+				        <!--<ul>-->
+				            <!--<li>-->
+				                <!--<i class="blue"></i>-->
+				                <!--<span>双创载体</span>-->
+				            <!--</li>-->
+				            <!--<li>-->
+				                <!--<i class="green"></i>-->
+				                <!--<span>双创企业</span>-->
+				            <!--</li>-->
+				            <!--<li>-->
+				                <!--<i class="purple"></i>-->
+				                <!--<span>双创校园</span>-->
+				            <!--</li>-->
+				            <!--<li>-->
+				                <!--<i class="yellow"></i>-->
+				                <!--<span>投资机构</span>-->
+				            <!--</li>-->
+				            <!--<li>-->
+				                <!--<i class="red"></i>-->
+				                <!--<span>政府</span>-->
+				            <!--</li>-->
+				        <!--</ul>-->
+				    <!--</div>-->
+					<div id="mapLegend_list" class="mapLegend_list">
+						<div style="text-align: center;width: 100%;"><h2 id="h_title">孵化器一览表</h2></div>
+						<div id="ranklist" class="ranklist">
+							<ul id="ranklist_ul">
+
+							</ul>
+						</div>
+					</div>
+				    <div id="myMap">
+				
+				    </div>
+				</div>
+				<div class="bottom-logo">
+					<img src="img/ca_logo.png"  style="margin-left: 634px;width:567px"/>
+				</div>
+        	</div>
+        </div>
+        <script src="js/vendor/jquery-3.2.0.min.js"></script>
+		<script src="js/pie.js"></script>
+		<script src="js/line.js"></script>
+        <script src="js/main.js"></script>
+		<script src="js/map.js"></script>
+		<script type="text/javascript">
+			(function($){
+
+				$.fn.myScroll = function(options){
+					//默认配置
+					var defaults = {
+						speed:80,  //滚动速度,值越大速度越慢
+						rowHeight:24 //每行的高度
+					};
+
+					var opts = $.extend({}, defaults, options),intId = [];
+
+					function marquee(obj, step){
+
+						obj.find("ul").animate({
+							marginTop: '-=1'
+						},10,function(){
+							var s = Math.abs(parseInt($(this).css("margin-top")));
+							if(s >= step){
+								$(this).find("li").slice(0, 1).appendTo($(this));
+								$(this).css("margin-top", 0);
+							}
+						});
+					}
+
+					this.each(function(i){
+						var sh = opts["rowHeight"],speed = opts["speed"],_this = $(this);
+						intId[i] = setInterval(function(){
+							if(_this.find("ul").height()<=_this.height()){
+								clearInterval(intId[i]);
+							}else{
+								marquee(_this, sh);
+							}
+						}, 40);
+
+						_this.hover(function(){
+							clearInterval(intId[i]);
+						},function(){
+							intId[i] = setInterval(function(){
+								if(_this.find("ul").height()<=_this.height()){
+									clearInterval(intId[i]);
+								}else{
+									marquee(_this, sh);
+								}
+							}, 40);
+						});
+
+					});
+
+				}
+
+			})(jQuery);
+		</script>
+    </body>
+</html>
